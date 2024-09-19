@@ -1,0 +1,43 @@
+# pickle — Python object serialization
+# example:to save and read a binary dictionary in and from a file
+with open('data.pkl', 'wb') as f:
+    pickle.dump(data, f)  # 
+with open('data.pkl', 'rb') as f:
+    data = pickle.load(f)
+
+# IPython (Interactive Python) 
+
+# Emacs is a highly customizable and extensible text editor that is often described as a "programming environment"
+sudo apt-get install Emacs
+
+# Digraph (short for Directed Graph) is a data structure in computer science that consists of a set of vertices (or nodes) connected by directed edges (or arrows). 
+# DAG (Directed Acyclic Graph) A DAG is a special type of Digraph where no cycles are allowed. 
+
+# websites
+# https://www.ebi.ac.uk/QuickGO/
+# https://pypi.org/project/go/
+#https://pypi.org/project/goenrichment
+# http://current.geneontology.org/ontology/go.obo
+# https://rest.ensembl.org/
+
+import goenrichment
+from goenrichment.go import load_gorichdb
+
+goenrich --goenrichDB gene2GO_human.pickle -i query.tsv -o goenrich.tsv
+
+
+https://ftp.ncbi.nlm.nih.gov/gene/DATA/
+gunzip -c gene2go.gz | grep -P "^9606\t" > gene2go_human  # no working
+gunzip -c gene2go.gz | grep "^9606\t" > gene2go_human
+#tax_id GeneID GO_ID  Evidence             Qualifier              GO_term             PubMed               Category
+9606      127898561        GO:1902775     IMP        involved_in        mitochondrial large ribosomal subunit assembly                31666358           Process
+9606      128854680        GO:0004725     IEA         enables               protein tyrosine phosphatase activity  -                Function
+9606      128854680        GO:0005737     IDA        located_in          cytoplasm          15252030           Component
+
+gunzip -c gene2ensemble.gz | grep "^9606\t" > gene2ensemble_human
+9606	9	ENSG00000171428	NM_000662.8	ENST00000307719.9	NP_000653.3	ENSP00000307218.4
+9606	9	ENSG00000171428	NM_001160171.4	ENST00000518029.5	NP_001153643.1	ENSP00000428270.1
+9606	9	ENSG00000171428	NM_001160174.3	ENST00000520546.1	NP_001153646.1	ENSP00000429341.1
+9606	9	ENSG00000171428	NM_001160175.4	ENST00000545197.3	NP_001153647.1	ENSP00000443194.1
+9606	10	ENSG00000156006	NM_000015.3	ENST00000286479.4	NP_000006.2	ENSP00000286479.3
+
